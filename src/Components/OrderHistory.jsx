@@ -27,7 +27,7 @@ const OrderHistory = () => {
 
     fetchOrderHistory();
 
-    const socket = io('http://localhost:5001');
+    const socket = io(`${import.meta.env,VITE_API_ADMIN_BASE_URL}`);
     const user = JSON.parse(localStorage.getItem('user'));
     if (user?._id) {
       socket.emit('register-user', user._id);
