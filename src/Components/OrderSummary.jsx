@@ -1,5 +1,5 @@
-// ✅ Updated Tailwind classes for more professional UI/UX design
-// File updates based on uploaded components
+// frontend/src/Components/OrderSummary.jsx
+
 
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';

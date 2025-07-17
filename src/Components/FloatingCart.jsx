@@ -1,4 +1,5 @@
-// ✅ FloatingCart.jsx - Refined for Maximum Appeal
+// frontend/src/Components/FloatingCart.jsx
+
 import React from 'react';
 
 const FloatingCart = ({ cart, onClick }) => {

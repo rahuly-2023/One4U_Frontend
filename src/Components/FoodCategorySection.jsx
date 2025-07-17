@@ -1,4 +1,6 @@
-// ✅ FoodCategorySection.jsx - Smooth Scroll + Responsive Cards with Dots
+// frontend/src/Components/FoodCategorySection.jsx
+
+
 import React, { useRef, useEffect, useState } from 'react';
 
 const FoodItemCard = ({ item, cart, onAddToCart, onUpdateQuantity }) => {
@@ -57,15 +59,15 @@ const FoodCategorySection = ({ category, cart, onAddToCart, onUpdateQuantity }) 
         <h2 className="text-2xl font-bold text-gray-900">{category.name}</h2>
         {canScroll && (
           <div className="flex gap-2">
-            <button onClick={() => scroll('left')} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-xl font-bold text-gray-600 flex items-center justify-center shadow">←</button>
-            <button onClick={() => scroll('right')} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-xl font-bold text-gray-600 flex items-center justify-center shadow">→</button>
+            <button onClick={() => scroll('left')} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-xl font-bold text-gray-600 flex  justify-center shadow">←</button>
+            <button onClick={() => scroll('right')} className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-xl font-bold text-gray-600 flex  justify-center shadow">→</button>
           </div>
         )}
       </div>
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+        className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
       >
         {category.items?.map(item => (
           <FoodItemCard

@@ -1,4 +1,5 @@
-// ✅ FilterSortControls.jsx - Fully Enhanced Dropdown UI
+// frontend/src/Components/FilterSortControls.jsx
+
 import React from 'react';
 
 const FilterSortControls = ({ onSortChange, onFilterChange }) => {

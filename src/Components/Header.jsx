@@ -1,4 +1,6 @@
-// ✅ Header.jsx - Tailwind UI Enhancements
+// frontend/src/Components/Header.jsx
+
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUserCircle, FaBell } from 'react-icons/fa';
@@ -165,9 +167,9 @@ const Header = ({ onSearch }) => {
                 {showUserMenu && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-50">
                     <ul className="divide-y divide-gray-200">
-                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => navigate('/profile')}>Profile</li>
+                      {/* <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => navigate('/profile')}>Profile</li>
                       <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => navigate('/orders')}>Orders</li>
-                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => navigate('/requests')}>Requests</li>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => navigate('/requests')}>Requests</li> */}
                       <li className="px-4 py-2 hover:bg-red-100 text-red-600 cursor-pointer" onClick={handleLogout}>Logout</li>
                     </ul>
                   </div>
