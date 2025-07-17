@@ -49,7 +49,7 @@ function Home() {
 
   // ✅ 3. User Side - Register socket and listen in Home.jsx
   useEffect(() => {
-    const socket = io(`${import.meta.env,VITE_SOCKET_ENDPOINT_URL}`);
+    const socket = io(`${import.meta.env.VITE_SOCKET_ENDPOINT_URL}`);
 
     const user = JSON.parse(localStorage.getItem('user'));
     if (user?._id) {
