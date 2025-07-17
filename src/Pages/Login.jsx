@@ -1,3 +1,6 @@
+// frontend/src/pages/Login.jsx
+
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
@@ -18,20 +21,16 @@ const Login = () => {
 
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/login`, formData)
       .then((response) => {
-        const reply = response.data.message;
-        const token = response.data.token;
+        const { message, token, user } = response.data;
 
         localStorage.setItem('token', token);
-        navigate('/home'); // ✅ navigate works here
+        localStorage.setItem('user', JSON.stringify(user)); // ✅ Store user object
 
-        toast(reply, {
+        navigate('/home');
+
+        toast(message, {
           position: "top-right",
           autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "colored",
           transition: Bounce,
         });

@@ -1,4 +1,6 @@
-// ✅ Home.jsx - UI Updated with Content Width Restriction and Styling Enhancements
+// frontend/src/pages/Home.jsx
+
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -9,6 +11,8 @@ import OrderHistory from '../Components/OrderHistory';
 import FilterSortControls from '../Components/FilterSortControls';
 import FloatingCart from '../Components/FloatingCart';
 import { toast } from 'react-toastify';
+import { io } from 'socket.io-client';
+
 
 function Home() {
   const token = localStorage.getItem('token');
@@ -39,6 +43,28 @@ function Home() {
       })
       .catch(() => toast.error('Could not load recommendations'));
   }, [token]);
+
+
+
+
+  // ✅ 3. User Side - Register socket and listen in Home.jsx
+  useEffect(() => {
+    const socket = io('http://localhost:5001');
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user?._id) {
+      socket.emit('register-user', user._id);
+    }
+
+    // Optional: for debug only
+    socket.on('connect', () => console.log('🔌 Socket connected:', socket.id));
+    socket.on('connect_error', (err) => console.error('Socket error:', err.message));
+
+    return () => socket.disconnect();
+  }, []);
+
+
+
 
   const debounce = (func, delay) => {
     let timeout;
